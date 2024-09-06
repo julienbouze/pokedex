@@ -16,7 +16,7 @@ const PokemonForms = ({ forms, onFormSelect, currentFormName, typeColor }) => {
                 <CardBody>
                     <CardContent 
                         className={`${isSelected 
-                            ? `bg-${typeColor}-500 text-white` 
+                            ? `${typeColor} text-white` 
                             : ''} rounded-lg p-2 transition-colors duration-200`}
                     >
                         <div className="relative w-full pb-[100%] mb-2">
