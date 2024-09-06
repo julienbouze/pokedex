@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardContent } from '../ui/Card';
+import Image from 'next/image';
 
 const PokemonForms = ({ forms, onFormSelect, currentFormName, typeColor }) => {
     const renderFormCard = (form) => {
@@ -14,14 +15,18 @@ const PokemonForms = ({ forms, onFormSelect, currentFormName, typeColor }) => {
                 <CardBody>
                     <CardContent 
                         className={`${isSelected 
-                            ? `${typeColor} text-white` 
+                            ? `bg-${typeColor}-500 text-white` 
                             : ''} rounded-lg p-2 transition-colors duration-200`}
                     >
-                        <img 
-                            src={form.image} 
-                            alt={form.name} 
-                            className="w-full h-auto object-contain mb-2"
-                        />
+                        <div className="relative w-full pb-[100%] mb-2">
+                            <Image 
+                                src={form.image} 
+                                alt={form.name} 
+                                layout="fill"
+                                objectFit="contain"
+                                className="absolute top-0 left-0 w-full h-full"
+                            />
+                        </div>
                         <p className="text-center text-sm font-semibold">
                             {form.name.toUpperCase().replace(/-/g, ' ')}
                         </p>

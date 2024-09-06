@@ -3,6 +3,7 @@ import PokemonHeader from './modal/PokemonHeader';
 import PokemonInfo from './modal/PokemonInfo';
 import PokemonForms from './modal/PokemonForms';
 import { TYPE_COLORS, SCROLLBAR_COLORS } from '../utils/constants';
+import Image from 'next/image';
 
 const PokemonModal = ({ pokemon: initialPokemon, onClose }) => {
     const [pokemon, setPokemon] = useState(initialPokemon);
@@ -109,9 +110,11 @@ const PokemonModal = ({ pokemon: initialPokemon, onClose }) => {
                             <div className="p-4 dark:text-white">
                                 <div className="flex flex-col md:flex-row">
                                     <div className="md:w-1/2 p-4">
-                                        <img 
+                                        <Image 
                                             src={pokemon.image} 
                                             alt={pokemon.name} 
+                                            width={500}
+                                            height={500}
                                             className="w-full h-auto object-contain"
                                         />
                                     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { TYPE_COLORS, GENERATION_BG_COLORS } from '../../utils/constants';
+import Image from 'next/image';
 
 const PokemonCard = React.forwardRef(({ pokemon, isFilteredOut, onClick, typeMatchLevel, isGenerationFiltered }, ref) => {
     const getTypeColor = (type) => {
@@ -42,12 +43,15 @@ const PokemonCard = React.forwardRef(({ pokemon, isFilteredOut, onClick, typeMat
                     </span>
                 </div>
                 <div className="p-4">
-                    <img 
-                        src={pokemon.image}
-                        alt={pokemon.name} 
-                        className="w-full h-auto object-contain grayscale-50 hover:grayscale-0 transition-all duration-300"
-                        loading="lazy"
-                    />
+                    <div className="relative w-full pb-[100%]">
+                        <Image
+                            src={pokemon.image}
+                            alt={pokemon.name}
+                            layout="fill"
+                            objectFit="contain"
+                            className="absolute top-0 left-0 w-full h-full"
+                        />
+                    </div>
                     <div className="mt-2 flex justify-center space-x-2">
                         {pokemon.types && pokemon.types.map((type, index) => {
                             const typeColor = getTypeColor(type);
