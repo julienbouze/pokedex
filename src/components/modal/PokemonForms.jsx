@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, CardBody, CardContent } from '../ui/Card';
 import Image from 'next/image';
+import Card from '../ui/Card';
+import { CardBody, CardContent } from '../ui/Card';
 
 const PokemonForms = ({ forms, onFormSelect, currentFormName, typeColor }) => {
     const renderFormCard = (form) => {
@@ -38,7 +39,7 @@ const PokemonForms = ({ forms, onFormSelect, currentFormName, typeColor }) => {
 
     return (
         <div className="mt-4">
-            <h3 className="text-xl font-bold mb-2">Different forms</h3>
+            <h3 className="text-xl font-bold mb-2">Formes</h3>
             <div className="flex flex-wrap -mx-2">
                 {forms.map(renderFormCard)}
             </div>
